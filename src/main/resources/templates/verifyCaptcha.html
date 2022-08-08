@@ -7,7 +7,6 @@
 <body>
 	<h3>Captcha Verification</h3>
 	<form th:action="@{/app/verify}" method="POST" th:object="${captcha}">
-	
 	<label for "image"> CAPTCHA</label>
 	<input type="image" id="image" th:src="*{'data:realCaptcha/jpg;base64,'+realCaptcha}">
 	<input type="hidden" th:field="*{hiddenCaptcha}"/><br>

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.apiclub.captcha.Captcha;
 
 @Controller
+@Slf4j
 @RequestMapping("/app")
 public class CaptchaController {
   @GetMapping("/verify")
@@ -19,6 +21,7 @@ public class CaptchaController {
   }
   @PostMapping("/verify")
   public String verify(@ModelAttribute CaptchaSettings captchaSettings, Model model) {
+	  log.info("Inside controller -- verify -- method");
 	  if(captchaSettings.getCaptcha().equals(captchaSettings.getHiddenCaptcha())){
 		  model.addAttribute("message","Captcha verified successfully");
 		  return "success";

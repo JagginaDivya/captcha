@@ -21,7 +21,7 @@ public class CaptchaController {
   }
   @PostMapping("/verify")
   public String verify(@ModelAttribute CaptchaSettings captchaSettings, Model model) {
-	  log.info("Inside controller -- verify -- method ------");
+	  log.info("------Inside controller -- verify -- method ------");
 	  if(captchaSettings.getCaptcha().equals(captchaSettings.getHiddenCaptcha())){
 		  model.addAttribute("message","Captcha verified successfully");
 		  return "success";
